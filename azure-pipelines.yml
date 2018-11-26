@@ -2,7 +2,7 @@
 # Start with a minimal pipeline that you can customize to build and deploy your code.
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
-
+  
 steps:
 - task: ShellScript@2
   displayName: 'Install Unity'
@@ -18,13 +18,12 @@ steps:
     args: '-target=RegisterUnity -UnitySerialNumber="$(UNITY_SERIAL_NUMBER_MACOS)" -UnityUsername="$(UNITY_USERNAME)" -UnityPassword="$(UNITY_PASSWORD)" -Verbosity="Diagnostic"'
 
 
-- task: ShellScript@2
+- task: tsuyoshiushio.shell-exec.shellexec.shellexec@0
   displayName: 'git stash'
   inputs:
     code: |
      # After activating unity, some important .meta files are deleted, so they must be un-deleted
      git stash
-
 
 - task: ShellScript@2
   displayName: 'Download Android NDK'
