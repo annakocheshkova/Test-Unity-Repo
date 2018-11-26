@@ -417,6 +417,13 @@ Task("BuildPuppetApps")
     BuildApps("Puppet");
 }).OnError(HandleError);
 
+Task("BuildApp")
+    .IsDependentOn("PrepareAssets")
+    .Does(()=>
+{
+    BuildApps("");
+}).OnError(HandleError);
+
 // Builds the demo applications and throws an exception on failure.
 Task("BuildDemoApps")
     .IsDependentOn("AddPackagesToDemoApp")
@@ -491,10 +498,10 @@ void GetUwpPackage (AppCenterModule module, bool usePublicFeed) {
 
 void BuildApps(string type = "", string projectPath = ".")
 {
-    if (type == "") 
-    {
+  //  if (type == "") 
+  //  {
         type = Argument("UnityScene", EnvironmentVariable("UNITY_SCENE"));
-    }
+  //  }
     if (Statics.Context.IsRunningOnUnix())
     {
         VerifyIosAppsBuild(type, projectPath);
@@ -580,7 +587,7 @@ void VerifyAppsBuild(string type, string platformIdentifier, string projectPath,
     {
         // Remove all existing builds and create new build.
         Statics.Context.CleanDirectory(outputDirectory);
-        ExecuteUnityMethod(/*methodPrefix + buildType + " " + */extraArgs, platformIdentifier);
+        ExecuteUnityMethod(methodPrefix + buildType + " " + extraArgs, platformIdentifier);
         verificatonMethod(outputDirectory);
 
         // Remove all remaining builds.
