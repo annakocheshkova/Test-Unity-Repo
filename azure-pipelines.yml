@@ -18,7 +18,7 @@ steps:
     args: '-target=RegisterUnity -UnitySerialNumber="$(UNITY_SERIAL_NUMBER_MACOS)" -UnityUsername="$(UNITY_USERNAME)" -UnityPassword="$(UNITY_PASSWORD)" -Verbosity="Diagnostic"'
 
 
-- task: tsuyoshiushio.shell-exec.shellexec.shellexec@0
+- task: ShellScript@2
   displayName: 'git stash'
   inputs:
     code: |
