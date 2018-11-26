@@ -3,13 +3,6 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
-pool:
-  vmImage: 'Ubuntu 16.04'
-
-queue:
-  name: Hosted Mac Internal
-  demands: sh
-
 steps:
 - task: ShellScript@2
   displayName: 'Install Unity'
