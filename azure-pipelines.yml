@@ -38,7 +38,7 @@ steps:
   inputs:
     scriptPath: ./build.sh
 
-    args: '-target=BuildApps -UnityScene="Puppet" -NuGetPassword="$(NUGET_PASSWORD)" -NuGetFeedId="$(NUGET_FEED_ID)" -Verbosity="Diagnostic"'
+    args: '-target=BuildApp -UnityScene="Puppet" -NuGetPassword="$(NUGET_PASSWORD)" -NuGetFeedId="$(NUGET_FEED_ID)" -Verbosity="Diagnostic"'
 
 
 - task: ShellScript@2
