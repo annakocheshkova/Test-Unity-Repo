@@ -92,7 +92,7 @@ static string GetBuildFolder(string appType, string projectPath)
 static void ExecuteUnityMethod(string buildMethodName, string buildTarget = null, string projectPath = ".")
 {
     Statics.Context.Information("Executing method " + buildMethodName + ", this could take a while...");
-    var command = /*"-executeMethod " + buildMethodName;*/; 
+    var command = ""; /*"-executeMethod " + buildMethodName;*/
     if (buildTarget != null)
     {
         command += " -buildTarget " + buildTarget;
