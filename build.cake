@@ -586,7 +586,7 @@ void VerifyAppsBuild(string type, string platformIdentifier, string projectPath,
     {
         // Remove all existing builds and create new build.
         Statics.Context.CleanDirectory(outputDirectory);
-        ExecuteUnityMethod(methodPrefix + buildType + " " + extraArgs, platformIdentifier);
+        ExecuteUnityMethod(/*methodPrefix + buildType + " " + */extraArgs, platformIdentifier);
         verificatonMethod(outputDirectory);
 
         // Remove all remaining builds.
