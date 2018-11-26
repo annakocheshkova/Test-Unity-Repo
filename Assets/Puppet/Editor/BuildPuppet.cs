@@ -17,10 +17,11 @@ public class BuildPuppet
 
     static BuildPuppet()
     {
+        var appIdentifier = System.Environment.GetEnvironmentVariable("APP_IDENTIFIER");
 #if UNITY_5_6_OR_NEWER
-        PlayerSettings.applicationIdentifier = AppIdentifier;
+        PlayerSettings.applicationIdentifier = appIdentifier;
 #else
-        PlayerSettings.bundleIdentifier = AppIdentifier;
+        PlayerSettings.bundleIdentifier = appIdentifier;
 #endif
     }
 
@@ -113,7 +114,7 @@ public class BuildPuppet
     private static void BuildPuppetScene(BuildTarget target, BuildTargetGroup targetGroup, ScriptingImplementation scriptingImplementation, string outputPath)
     {
         PlayerSettings.SetScriptingBackend(targetGroup, scriptingImplementation);
-        string[] puppetScene = { AppCenterSettingsContext.AppCenterPath + "/Puppet/PuppetScene.unity" };
+        string[] puppetScene = { System.Environment.GetEnvironmentVariable("UNITY_SCENE")  };
         var options = new BuildPlayerOptions
         {
             scenes = puppetScene,
