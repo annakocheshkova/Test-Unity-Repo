@@ -141,7 +141,7 @@ public class BuildPuppet
     public static void SetVersionNumber()
     {
         var currentVersion = PlayerSettings.bundleVersion;
-        var puppetVersion = Microsoft.AppCenter.Unity.WrapperSdk.WrapperSdkVersion;
+        var puppetVersion = "1.0";
         PlayerSettings.bundleVersion = puppetVersion;
         PlayerSettings.Android.bundleVersionCode++;
     }

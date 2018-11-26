@@ -418,7 +418,6 @@ Task("BuildPuppetApps")
 }).OnError(HandleError);
 
 Task("BuildApp")
-    .IsDependentOn("PrepareAssets")
     .Does(()=>
 {
     BuildApps("");
