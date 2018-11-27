@@ -18,11 +18,13 @@ public class BuildPuppet
     static BuildPuppet()
     {
         var appIdentifier = System.Environment.GetEnvironmentVariable("APP_IDENTIFIER");
+        var unityAppName = System.Environment.GetEnvironmentVariable("UNITY_APP_NAME");
 #if UNITY_5_6_OR_NEWER
         PlayerSettings.applicationIdentifier = appIdentifier;
 #else
         PlayerSettings.bundleIdentifier = appIdentifier;
 #endif
+        BuildFolder = "CAKE_SCRIPT_TEMP" + unityAppName + "Builds";
     }
 
     public static void BuildPuppetSceneAndroidMono()
