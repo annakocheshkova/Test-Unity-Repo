@@ -499,7 +499,7 @@ void BuildApps(string type = "", string projectPath = ".")
 {
   //  if (type == "") 
   //  {
-        type = Argument("UnityScene", EnvironmentVariable("UNITY_SCENE"));
+        type = Argument("UnityAppName", EnvironmentVariable("UNITY_APP_NAME"));
   //  }
     if (Statics.Context.IsRunningOnUnix())
     {
